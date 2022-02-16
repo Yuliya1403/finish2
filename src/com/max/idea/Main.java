@@ -5,75 +5,45 @@ import java.util.Locale;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        int result = 0;
-        int num1;
-        int num2;
-        char smb;
-        num1 = ((int) (Math.random() * 9));
-        num2 = ((int) (Math.random() * 9));
-        Scanner input = new Scanner(System.in);
-        System.out.println("Выберите тип уравнения: 1 - x в начале, 2 - x в середине, 3 - x в равенстве");
-        int type = input.nextInt();
-        if (type == 1) {
-            System.out.print("\nВведите знак (+, -): ");
-            smb = input.next().charAt(0);
-            switch (smb) {
-                case '+':
-                    result = num2 - num1;
-                    break;
-                case '-':
-                    result = num1 + num2;
-                    break;
-                default:
-                    System.out.printf("Неккоректно введены данные");
+    Scanner input = new Scanner(System.in);
+
+        System.out.println("Введите уравнение: ");
+
+        String[] result = input.nextLine().split("");
+        String operation = result[1];
+
+        if (result[0].equals("x")) {
+            int a = Integer.parseInt(result[2]);
+            int b = Integer.parseInt(result[4]);
+
+            if (operation.equals("+")) {
+                System.out.println("Результат: " + (b - a));
+            } else {
+                System.out.println("Результат: " + (a + b));
             }
+        } else if (result[2].equals("x")) {
+            int a = Integer.parseInt(result[0]);
+            int b = Integer.parseInt(result[4]);
 
-            System.out.println("первое число равно:" + num1 + " второе число равно:" + num2 + ", результат:" + result);
-
-        }
-        if (type == 2) {
-            System.out.print("\nВведите знак (+, -): ");
-            smb = input.next().charAt(0);
-            switch (smb) {
-                case '+':
-                    result = num2 - num1;
-                    break;
-                case '-':
-                    result = num1 + num2;
-                    break;
-                default:
-                    System.out.printf("Неккоректно введены данные");
+            if (operation.equals("+")) {
+                System.out.println("Результат: " + (b - a));
+            } else {
+                System.out.println("Результат: " + (a - b));
             }
+        } else {
+            int a = Integer.parseInt(result[0]);
+            int b = Integer.parseInt(result[2]);
 
-            System.out.println(" первое число равно:" + num1 + " второе число равно:" + num2 + ", результат:" + result);
-
-        }
-        if (type == 3) {
-            System.out.print("\nВведите знак (+, -): ");
-            smb = input.next().charAt(0);
-            switch (smb) {
-                case '+':
-                    result = num2 + num1;
-                    break;
-                case '-':
-                    result = num1 - num2;
-                    break;
-                default:
-                    System.out.printf("Неккоректно введены данные");
+            if (operation.equals("+")) {
+                System.out.println("Результат: " + (a + b));
+            } else {
+                System.out.println("Результат: " + (a - b));
             }
-
-            System.out.println("первое число равно:" + num1 + " второе число равно:" + num2 + " результат:" + result);
         }
     }
 }
-
-
-
-
-
-
-
-
+    
+     
 
 
 
